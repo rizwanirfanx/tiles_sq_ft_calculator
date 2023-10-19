@@ -32,15 +32,16 @@ function tws_before_add_to_cart_sq_ft_calculator()
 				<div class="my-2">
 					<div class="position-relative">
 						<input id="sq-ft-per-box-input" value="<?= $attribute_value ?>" hidden />
-						<input id="product-price" value="<?= $price ?>" hidden />
+						<input id="tws-product-price" value="<?= $price ?>" hidden />
 						<input name="sq-ft" id="sq-ft-input" type="number" class="form-control sm-font w-100" placeholder="Enter Square Footage">
 						<p class="position-absolute sm-font" style="top: 20%; right: 30px; color: grey;">sq ft</p>
 					</div>
 					<p class="m-0">or</p>
 				</div>
 				<div class="my-2 position-relative">
-					<input name="cartons" id="carton-input" type="text" class="form-control sm-font" placeholder="Enter Quantity">
-					<p class="position-absolute sm-font" style="top: 20%; right: 20px; color: grey;">carton</p>
+					<input name="cartons" id="carton-input" type="number" class="form-control sm-font" placeholder="Enter Quantity">
+					<input hidden name="cartons-without-reserve" id="carton-input-without-reserve" type="number" class="form-control sm-font" placeholder="Enter Quantity">
+					<p class="position-absolute sm-font" style="top: 20%; right: 30px; color: grey;">carton</p>
 				</div>
 				<div>
 					<input type="checkbox" id="extra-tiles-checkbox" />
@@ -50,9 +51,12 @@ function tws_before_add_to_cart_sq_ft_calculator()
 				<div id="price-summary-container">
 					<div class="d-flex justify-content-between">
 						<h5>Total Price</h5>
-						<h5 class="d-none">$45000</h5>
+						<h5 id="total-price-container" class="d-none">
+							<span class="">$</span>
+							<span id="tws-total-price"></span>
+						</h5>
 					</div>
-					<p id="cartons-summary-text" class="sm-font text-right m-0 d-none">X Cartons covers Y Sq.Ft</p>
+					<p id="cartons-summary-text" class="sm-font text-right m-0 d-none"><span id="number-of-cartons">X</span> Cartons covers <span id="number-of-sq-ft-in-cartons"></span> Sq.Ft</p>
 					<p id="cartons-summary-text-placeholder" class="sm-font text-right m-0 " style="color: grey;">Please Enter Quantity</p>
 				</div>
 			</div>
